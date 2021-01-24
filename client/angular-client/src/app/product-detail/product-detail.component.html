@@ -1,0 +1,12 @@
+<div class="detailContent">
+<h1>{{productDetail.name}}</h1>
+<mat-form-field appearance="outline">
+<input matInput type="textArea" value={{productDetail.beschreibung}} readonly>
+
+</mat-form-field>
+<h2>Kontakt: </h2>
+<input matInput type="text" value={{productDetail.kontakt}} readonly>
+</div>
+<div class="imgContainer">
+    <a href="{{productDetail.fotourl}}"><img src="{{productDetail.fotourl}}" height="500" width="600"></a>
+</div>

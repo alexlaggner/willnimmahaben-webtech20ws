@@ -1,0 +1,52 @@
+<div class="newUserBox" *ngIf="(isCreated == false)">
+<h1>Benutzer erstellen</h1>
+<form #newUserForm ="ngForm">
+<p>
+<mat-form-field appearance="outline" >
+    <mat-label>Nutzername:</mat-label>
+    <input matInput type="text" name="username" id="username" [(ngModel)]="newUserName" required>
+</mat-form-field>
+</p>
+    
+<p>
+<mat-form-field appearance="outline" >
+        <mat-label>Passwort: </mat-label>
+            <input matInput type="password" name="password1" id="password1" [(ngModel)]="newUserPassword" required>
+</mat-form-field>
+</p>
+    
+<p>
+<mat-form-field appearance="outline" >
+        <mat-label>Passwort erneut eingeben: </mat-label>
+            <input matInput type="password" name="password2" id="password2" [(ngModel)]="newUserPasswordConfirm" required>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" >
+        <mat-label>E-Mail-Adresse: </mat-label>
+            <input matInput type="email" name="email" id="email" [(ngModel)]= "newUserEmail" required>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" >
+        <mat-label>Telefon(optional): </mat-label>
+            <input matInput type="text" name="tel" id="tel"[(ngModel)]="newUserTel">
+    </mat-form-field>
+<p>
+<button mat-stroked-button type="submit" (click)="createUser()"[disabled]="newUserForm.invalid">Benutzer erstellen</button>
+</p>
+</form>
+
+<p>Bereits Nutzer? <a href="" routerLink="/login">Hier einloggen</a>
+</p>
+</div>
+<div *ngIf="(isCreated == true)" class="newUserBox">
+    <h1>Gl&uuml;ckwunsch!</h1> 
+    {{newUserName}} wurde erstellt!
+    <p>
+    <button mat-stroked-button routerLink="/login">Zum login</button>
+    </p>
+</div>
+

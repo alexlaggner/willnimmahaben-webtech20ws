@@ -1,0 +1,23 @@
+.filterPosition{
+    padding-top:2rem;
+    padding-right:1%;
+    float:right;
+}
+.contentPosition{
+    padding-top: 2rem;
+    padding-left: 2%;
+}
+mat-list{
+    padding-top:3 rem;
+}
+.geradeZeile{
+    background-color:gray;
+}
+.beschreibungContainer{
+    float:right;
+    margin-right:40%;
+}
+.produktnameContainer{
+    float:left;
+    margin-left:50%;
+}

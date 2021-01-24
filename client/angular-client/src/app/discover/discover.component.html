@@ -1,0 +1,46 @@
+<mat-form-field appearance="fill" class="filterPosition">
+<mat-label>Nach Kategorie filtern
+
+</mat-label><mat-select>
+    <mat-option value="option1" (click)="getProducts()">Alle Produkte</mat-option>
+    <mat-option value="option2" (click)="getProductsByCategory('auto')">Auto</mat-option>
+    <mat-option value="option3" (click)="getProductsByCategory('elektronik')">Elektronik</mat-option>
+    <mat-option value="option4" (click)="getProductsByCategory('haushalt')">Haushalt</mat-option>
+    <mat-option value="option5" (click)="getProductsByCategory('andere')">Andere</mat-option>
+</mat-select>
+</mat-form-field>
+
+<div class="contentPosition">
+    <h1>Entdecken</h1>
+<ul>
+    <li *ngFor="let product of productList">
+        <div>
+        <div class="produktnameConatiner">
+        <a href="" routerLink="/productDetail/{{product.id}}">
+        <img src="{{product.fotourl}}" width="360" height="200">
+        <h1>{{product.name}}</h1>
+        </a>
+        </div>
+        <div class="beschreibungContainer">
+            <h2>{{product.beschreibung}}</h2>
+        </div>
+        </div>
+        <br><br><br>
+        <hr>
+    </li>
+</ul>
+
+
+    
+<!--
+    <li *ngFor="let product of productList">
+        
+        <h1>img ||
+        <a href="" routerLink="/productDetail/{{product.id}}">{{product.name}}</a>
+        </h1>
+        <p>{{product.beschreibung}}</p>
+    </li>
+
+</ul>
+-->
+</div>

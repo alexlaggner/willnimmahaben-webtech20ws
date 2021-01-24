@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="navbar">
+    <div>Willnimma Haben</div>
+    <div>
+    <span *ngIf="(checkIfLogged == false)"><a href="" routerLink="/login" color="primary">Login</a></span>
+    <span *ngIf="(checkIfLogged == true)"><a href="" (click)="logout()" color="primary">Logout</a></span>
+
+    <span><a href="" routerLink="/discover">Entdecken</a></span>
+    <span *ngIf="(checkIfLogged == true)"><a href="" routerLink="/user">{{activeUserName}}'s Bereich</a></span>
+    <span *ngIf="(checkIfLogged == true)"><a href="" routerLink="/newProduct">Anzeige erstellen</a></span>
+
+    </div>
+</mat-toolbar>
+<!--
+<p><a href="" routerLink="/login">Login</a></p>
+<p><a href="" routerLink="/discover">Discover</a></p>
+<p><a href="" routerLink="/user">Mein Bereich</a></p>
+<p><a href="" routerLink="/detail">Detail View</a></p>
+<p><a href="" routerLink="/newProduct">Neues Produkt</a></p>
+<p><a href="" routerLink="/updateUser">Meine Daten</a></p>
+
+
+<router-outlet></router-outlet>-->

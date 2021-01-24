@@ -1,0 +1,15 @@
+
+<div *ngIf="(productCheck == false)">
+<div *ngIf="(outputString == null)" class="contentPosition">
+<p>Wollen Sie <span>{{productToDelete.name}}</span> wirklich löschen?</p>
+<button mat-stroked-button (click)="deleteProduct()">Ja</button>
+<button mat-stroked-button routerLink="/user">Nein</button>
+</div>
+<div *ngIf="(outputString != null)" class="contentPosition">
+    <h3>{{outputString}}</h3>
+    <button mat-stroked-button routerLink="/user"> Zur&uuml;ck zu meinem Bereich.</button>
+</div>
+</div>
+<div class="contentPosition" *ngIf="(productCheck == true)">
+<h1>Ups! Da ist wohl etwas schiefgelaufen!</h1>
+</div>

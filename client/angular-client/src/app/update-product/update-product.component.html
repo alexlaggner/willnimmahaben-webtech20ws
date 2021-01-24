@@ -1,0 +1,40 @@
+<div *ngIf="(showForm == true)">
+<div class="updateContent" *ngIf="(checkProduct == true)">
+<h1>{{productToUpdate.name}} aktualisieren: </h1>
+<form #updateProductForm="ngForm">
+<p>
+<mat-form-field appearance="outline">
+<mat-label>Neuer Name:</mat-label>
+<input matInput type="text" value="{{productToUpdate.name}}" name="newName" id="newName" [(ngModel)]="updateName" required>
+</mat-form-field>
+</p>
+<p>
+<mat-form-field appearance="outline">
+    <mat-label>Neue Beschreibung: </mat-label>
+    <input matInput type="textarea" maxlength="256" value="{{productToUpdate.beschreibung}}" name="newBeschreibung" id="newBeschreibung" [(ngModel)]="updateBeschreibung" required>
+</mat-form-field>
+</p>
+<h3>Kategorien:</h3>
+<p>
+    <mat-checkbox id="newAuto" name="kategorie" required [(ngModel)]="updateAuto" checked="convertAuto">Auto: </mat-checkbox>
+</p>
+<p>
+    <mat-checkbox id="newElektronik" name="kategorie" required checked="convertElektronik" [(ngModel)]="updateElektronik">Elektronik: </mat-checkbox>
+</p>
+<p>
+    <mat-checkbox id="newHaushalt" name="kategorie" required checked="convertHaushalt" [(ngModel)]="updateHaushalt">Haushalt: </mat-checkbox>
+</p>
+<p>
+    <mat-checkbox id="newAndere" name="kategorie" required checked="convertAndere" [(ngModel)]="updateAndere">Andere: </mat-checkbox>
+</p>
+<button mat-stroked-button (click) ="updateProduct()"[disabled]="updateProductForm.invalid">Aktualisieren</button>
+</form>
+</div>
+<div class="updateContent" *ngIf="(checkProduct == false)">
+<p>Ups! Da ist wohl etwas schiefgegangen!</p>
+</div>
+</div>
+<div *ngIf="(showForm == false)" class="updateContent">
+<p>{{outputString}}</p>
+<p><button mat-stroked-button routerLink="/user">Zurück zu meinem Bereich.</button></p>
+</div>

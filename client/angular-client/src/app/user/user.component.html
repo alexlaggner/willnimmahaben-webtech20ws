@@ -1,0 +1,68 @@
+<div *ngIf="(checkIfUser == true)">
+<div class="userContent" *ngIf="(checkIfUpdate == false)">
+<h1>{{activeUser.userName}}'s Bereich</h1>
+<form #updateUserForm="ngForm">
+<p>
+<mat-form-field appearance="outline"> 
+    <mat-label>Nutzername: </mat-label>
+    <input matInput type="text" value={{activeUser.userName}} name="updatename" id="updatename" [(ngModel)]="updateName" >
+</mat-form-field>
+
+</p>
+
+<p>
+    <mat-form-field appearance="outline" >
+        <mat-label>Telefon:</mat-label>
+        <input matInput type="text" value={{activeUser.tel}} name="updatetel" id="updatetel" [(ngModel)]="updateTel" >
+    </mat-form-field>
+</p>
+    
+<p>
+    <mat-form-field appearance="outline" >
+        <mat-label>E-Mail:</mat-label>
+        <input matInput type="email" value={{activeUser.email}} name="mail" id="mail" readonly> 
+    </mat-form-field>
+</p>
+<p>
+    <mat-form-field appearance="outline" >
+        <mat-label>KdNr:</mat-label>
+        <input matInput type="text" value={{activeUser.id}} name="kdnr" id="kdnr" readonly>
+    </mat-form-field>
+</p>
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Neues Passwort:</mat-label>
+        <input matInput type="password" name="newpw" id="newpw" [(ngModel)]="updatePassword" >
+    </mat-form-field>
+</p>
+<p>
+<mat-form-field>
+    <mat-label>
+        Altes Passwort (f&uuml;r update): 
+    </mat-label>
+    <input matInput type="password" [(ngModel)]="oldPw" id="oldpw" name="oldPw" required>
+</mat-form-field>
+<button mat-stroked-button type="submit" (click)="userUpdate()" [disabled]="updateUserForm.invalid">Update</button>
+</p>
+</form>
+</div>
+<div class="productPosition">
+<h2>{{activeUser.userName}}'s Produkte</h2>
+<ul>
+    <li *ngFor="let product of activeUsersProducts">
+        <p>{{product.name}}</p>
+        <p>
+            <button mat-stroked-button routerLink ="/updateProduct/{{product.id}}">Aktualisieren</button>
+            <button mat-stroked-button routerLink="/deleteProduct/{{product.id}}">L&ouml;schen</button>
+        </p>
+    </li>
+</ul>
+</div>
+<div *ngIf="(checkIfUpdate == true)" class="userContent">
+    <h1>{{updateUser.userName}} wurde aktualisiert!</h1>
+    <p>Bitte loggen sie sich erneut ein!</p>
+</div>
+</div>
+<div class="userContent" *ngIf="(checkIfUser == false)">
+    <h1>Bitte loggen Sie sich <a href="" routerLink="/login">hier</a> ein</h1>
+</div>
